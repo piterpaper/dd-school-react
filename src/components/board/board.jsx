@@ -1,20 +1,26 @@
 import React from "react";
 import Card from "../card/card";
+import Sorting from "../sorting/sorting";
+import LoadeMore from "../LoadMore/load-more";
+import Event from "../event/event"
+import { AppRoute } from "../../const";
 
-const Board = () => {
+const Board = ({ mode }) => {
   return (
-    <section className="Board">
-      {/* тут будет сортировка */}
-      <div className="board__events">
-        <Card />
-      </div>
-      
-      <button className="load-more" type="button">
-        Загрузить еще
-      </button>
-      
+    <section className="board">
+      {mode !== AppRoute.EVENT ? 
+        <>
+          {/* Тут будет сортировка */}
+          <Sorting />
+          <div className="board__events">
+            <Card />
+          </div>
+          <LoadeMore />
+        </>
+       : 
+        <Event />
+      }
     </section>
-    
   );
 };
 
