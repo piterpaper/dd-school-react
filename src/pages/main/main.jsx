@@ -1,17 +1,16 @@
 import React from "react";
-import Header from '../../components/header/header';
-import Filter from '../../components/filter/filter';
-import Board from '../../components/board/board'
-import { AppRoute } from "../../const.js";
+import Header from '../../components/Header/header';
+import Filter from '../../components/Filter/filter';
+import Board from '../../components/Board/board'
 
 const Main = () => {
     return(
         // React.Fragment
         <>
-        <Header mode={AppRoute.MAIN}/>
+        <Header />
         <section className="main__wrapper">
-        <Filter mode={AppRoute.MAIN}/>
-        <Board mode={AppRoute.MAIN}/>
+        <Filter />
+        <Board/>
         </section>
         </>
     )
