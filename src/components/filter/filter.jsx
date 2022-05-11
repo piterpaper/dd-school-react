@@ -1,6 +1,11 @@
 import React from "react";
+import { AppRoute } from "../../const";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Filter = () => {
+  const pathname = useLocation().pathname.slice(0, 8);
+
   return (
     <section className="main__filter filter">
       <input
@@ -51,9 +56,12 @@ const Filter = () => {
       <label htmlFor="filter__favorite" className="filter__label">
         Избранное <span className="filter__favorite-count count">1</span>
       </label>
-      <button name="control" className="btn-add">
-        Создать
-      </button>
+
+      {pathname === AppRoute.ARCHIVE.slice(0, 8) ? null : (
+        <Link to="/event" name="control" className="btn-add">
+          Создать
+        </Link>
+      )}
     </section>
   );
 };

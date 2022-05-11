@@ -1,15 +1,17 @@
 import React from "react";
-import Board from "../../components/board/board";
-import Header from "../../components/header/header";
+import Board from "../../components/Board/board";
+import Header from "../../components/Header/header";
 import { AppRoute } from "../../const.js";
+import { useParams } from "react-router-dom";
 
-const Archive = () => {
+const Archive = (props) => {
+ 
   return (
     <>
-      <Header mode={AppRoute.ARCHIVE} />
-      <section className="main__wrapper">
-        <Board />
-      </section>
+      <Header />
+            <section className="main__wrapper">
+                <Board />
+            </section>
     </>
   );
 };
