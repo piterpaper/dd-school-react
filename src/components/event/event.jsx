@@ -1,24 +1,25 @@
 import React from "react";
 import { useState, useEffect  } from "react";
 import { useParams } from "react-router-dom";
+import moment from "moment";
 
 
-const Event = () => {
+const Event = ({date}) => {
 
-  const [id, setId] = useState('');
-console.log('id ', id)
-  const params = useParams();
+const [info, setInfo] = useState('');
+useEffect(()=> setInfo(date), [date]);
 
-  useEffect(() => setId(params.id), [params.id]);
-  
-    let heading, button;
-    if (id){
-        heading = `Изменение события ${id}`;
-        button = 'Сохранить'
-    } else {
-        heading = 'Добавление события';
-        button = 'Добавить'
-    }
+let heading;
+let button;
+
+if(info._id){
+  heading = `Изменение события ${info._id}`;
+  button = 'Сохранить'
+} else{
+  heading = 'Добавление события';
+  button = 'Добавить'
+}
+
   return (
     <form className="board__form">
       <h2 className="board__title">{heading}</h2>
@@ -52,6 +53,7 @@ console.log('id ', id)
           type="datetime-local"
           className="board__input board__input--date"
           name="date"
+          value={moment(info.date).format('YYYY-MM-DDThh:mm')}
         />
       </fieldset>
       <div className="btns">

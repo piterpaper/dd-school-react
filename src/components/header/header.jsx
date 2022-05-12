@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 const Header = ({mode}) => {
 
   const pathname = useLocation().pathname.slice(0, 8);
-       // console.log(AppRoute.ARCHIVE.slice(0, 8));
+  
   return (
     <section className="main__header">
       <section className="main__header-wrap">

@@ -1,16 +1,21 @@
 import React from "react";
 import Board from "../../components/Board/board";
 import Header from "../../components/Header/header";
-import { AppRoute } from "../../const.js";
+
+import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-const Archive = (props) => {
+const Archive = ({events}) => {
  
+  const {id} = useParams();
+
+  const archiveEvents = events.filter( x => x.archive === true)
+
   return (
     <>
       <Header />
             <section className="main__wrapper">
-                <Board />
+                <Board events={archiveEvents} />
             </section>
     </>
   );
