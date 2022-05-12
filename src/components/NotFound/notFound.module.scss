@@ -1,0 +1,41 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: monospace;
+    .numberError {
+        color: #000000;
+        margin: 0;
+        font-size: 250px;
+        letter-spacing: 10px;
+        span {
+            font-size: 35px;
+        }
+    }
+    .notFound,
+    .back {
+        margin: 10px;
+        font-size: 30px;
+        padding: 0 30px;
+        border-left: 10px solid #ee1b52;
+        border-right: 10px solid #5eafb5;
+    }
+    .return {
+        position: absolute;
+        left: 5%;
+        top: 5%;
+        text-decoration: none;
+        color: #000000;
+        font-size: 26px;
+        letter-spacing: 2px;
+        padding: 10px 20px;
+        border: 2px solid #000000;
+        box-shadow: 5px 5px 0 #e20909;
+        transition: .3s;
+        &:hover {
+            box-shadow: -5px -5px 0 #5eafb5;
+        }
+    }
+}
