@@ -1,24 +1,23 @@
 import React from "react";
 import Board from "../../components/Board/board";
 import Header from "../../components/Header/header";
-
 import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { events } from "../../store/store";
+import { observer } from 'mobx-react-lite';
 
-const Archive = ({events}) => {
+const Archive = observer(() => {
  
-  const {id} = useParams();
-
-  const archiveEvents = events.filter( x => x.archive === true)
+  const {archiveData} = events;
 
   return (
     <>
       <Header />
             <section className="main__wrapper">
-                <Board events={archiveEvents} />
+                <Board events={archiveData} />
             </section>
     </>
-  );
-};
+  )
+});
 
 export default Archive;

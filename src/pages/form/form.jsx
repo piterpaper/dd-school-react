@@ -5,26 +5,33 @@ import Event from '../../components/Event/event';
 import { AppRoute } from '../../const';
 import {events} from "../../mocks"
 import { useParams } from 'react-router-dom';
+import { observer } from 'mobx-react-lite'; 
+import moment from 'moment';
 
-const Form = () => {
+const Form = observer(() => {
 
-  let date;
+  const { allData } = events;
+
+  let data;
   const id = useParams().id;
-
+  
   if(id) {
-    console.log(id + 'id есть');
-    let curEl = events.find(event => event._id === id);
-    date = curEl;
-    if (date === undefined) {
-        date = {
-            _id: null
+
+    let curEl = allData.find(event => event._id === id);
+    data = curEl;
+    if (data === undefined) {
+        data = {
+            _id: null,
+            data: moment().format('YYYY-MM-DDThh:mm')
+
         };
     }
-    console.log(date);
+    console.log(data);
 } else {
-    console.log('id нет')
-    date = {
-        _id: null
+  
+    data = {
+        _id: null,
+        date: moment().format('YYYY-MM-DDThh:mm')
     };
 }
 
@@ -32,13 +39,13 @@ const Form = () => {
     <>
     <Header />
     <section className="main__wrapper">
-        <Filter mode={AppRoute.EVENT}/>
-        <Event date={date}/>
+        <Filter />
+        <Event data={data}/>
     </section>
     
     </>
   
   );
-};
+});
 
 export default Form;

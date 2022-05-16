@@ -7,11 +7,11 @@ import { AppRoute } from "../../const";
 import { useLocation } from "react-router-dom";
 
 const Board = ({events}) => {
-  const pathname = useLocation().pathname.slice(0, 8);
+  const pathname = useLocation().pathname;
  
   return (
     <section className="board">
-      {pathname === AppRoute.ARCHIVE.slice(0, 8) && <Sorting />}
+      {pathname !== AppRoute.ARCHIVE && <Sorting />}
       <div className="board__events">
                 {events.map(event => <Card {...event} key={event._id} />)}
             </div>

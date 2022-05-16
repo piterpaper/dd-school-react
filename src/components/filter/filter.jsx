@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Filter = () => {
+  
   const pathname = useLocation().pathname.slice(0, 8);
 
   return (
